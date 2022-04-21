@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: all-yaml-test
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/raghavi101/multiple-yaml-test.git
+    targetRevision: HEAD
+    path: outer
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+
